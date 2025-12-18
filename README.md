@@ -32,3 +32,24 @@ The system integrates three key technical directions:
   - Realistic ensemble modeling
 
 4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
+
+# Pipeline
+
+| Script | Description |
+|--------|-------------|
+| src/data/converters.py | KRN → MIDI conversion and symbolic normalization. |
+| src/data/download_slakh.py | Download BabySlakh dataset. |
+| src/data/download_urmp.py | Download URMP dataset. |
+| src/data/extraction.py | Extract f0, loudness, and frame-level features. |
+| src/data/loader.py | Dataset loading utilities. |
+| src/data/preprocess.py | Windowing, normalization, feature preparation. |
+| src/data/process_band.py | Multi-instrument alignment (LSX stems). |
+| src/models/audio_RAG.py | Audio retrieval-augmented generation logic. |
+| src/models/decoder_conductor.py | Transformer arranger predicting follower loudness. |
+| src/models/decoder_instrument.py | Instrument-specific GRU + DDSP synthesizer. |
+| src/models/perform_music.py | End-to-end generation + multi-instrument synthesis. |
+| src/models/signal_processing.py | Harmonic & noise DDSP utilities. |
+| src/models/train_conductor.py | Training loop for the Transformer arranger. |
+| src/models/train_instrument.py | Training loop for instrument decoders. |
+| src/visualization/song_in_detail.py | Mel plots, loudness curves, waveform diagnostics. |
+
