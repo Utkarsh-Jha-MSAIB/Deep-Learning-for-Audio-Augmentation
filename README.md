@@ -31,4 +31,4 @@ The system integrates three key technical directions:
   - Temporal synchronization
   - Realistic ensemble modeling
 
-5. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
+4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
