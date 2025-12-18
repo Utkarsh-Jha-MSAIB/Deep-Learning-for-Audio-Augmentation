@@ -13,6 +13,7 @@ The system integrates three key technical directions:
   - DDSP modules provide realistic harmonic & noise modeling
   - Transformer Arranger predicts follower-instrument dynamics based on a leader signal
   - Ensemble arrangement (bass + drums + guitar + etc.)
+
 - **Audio Retrieval-Augmented Generation (RAG)** (for extension, coherence, and style grounding)
   - Large feature database of audio chunks
   - Retrieval based on similarity (chroma, energy, coherence)
@@ -21,17 +22,13 @@ The system integrates three key technical directions:
 
 📂 **Datasets**
 
-1. Essen Folksong (KRN)
-Symbolic-only dataset for early pipeline validation.
+1. **Essen Folksong (KRN)**: Symbolic-only dataset for early pipeline validation.
 
-2. BabySlakh
-Small multitrack dataset for debugging and small-scale decoder training.
+2. **BabySlakh**: Small multitrack dataset for debugging and small-scale decoder training.
 
-3. LSX
-- Large-scale (~28 GB) multitrack dataset enabling:
-- Multi-instrument arrangement
-- Temporal synchronization
-- Realistic ensemble modeling
+3. **LSX**: Large-scale (~28 GB) multitrack dataset enabling
+  - Multi-instrument arrangement
+  - Temporal synchronization
+  - Realistic ensemble modeling
 
-5. URMP
-Classical multi-instrument stems; used for acoustic timbre modeling.
+5. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
