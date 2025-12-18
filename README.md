@@ -8,8 +8,8 @@ This project explores deep learning approaches for expressive audio augmentation
 Instead of generating music from text alone, the system listens to audio, extracts expressive characteristics, and produces musically coherent variations grounded in real sonic input.
 
 The system integrates three key technical directions:
-1) Multi-Instrument Neural-DSP Pipeline (audio-conditioned RNN + Transformer)
-2) Audio Retrieval-Augmented Generation (RAG) (for extension, coherence, and style grounding)
+- Multi-Instrument Neural-DSP Pipeline (audio-conditioned RNN + Transformer)
+- Audio Retrieval-Augmented Generation (RAG) (for extension, coherence, and style grounding)
 
 📚 Table of Contents
 
