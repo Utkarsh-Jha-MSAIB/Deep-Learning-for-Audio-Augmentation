@@ -16,7 +16,7 @@ The system integrates three key technical directions:
  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="700"/>
+  <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="500"/>
 </p>
      
 
@@ -26,6 +26,11 @@ The system integrates three key technical directions:
   - Retrieval based on similarity (chroma, energy, coherence)
   - Weighted scoring: relevance + seam smoothness
   - Entire multi-instrument pipeline can generate extended Top-K continuations
+ 
+  <p align="center">
+  <img src="https://github.com/user-attachments/assets/e9cbfe7c-8dc5-4ca3-8e43-559121c288e3" width="500"/>
+</p> 
+  
 
 📂 **Datasets**
 
