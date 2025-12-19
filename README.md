@@ -45,17 +45,20 @@ The system integrates three key technical directions:
 
 4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
 
-# Pipeline: a modular coding structure, with following desccription of main scripts in the process
+# Project Pipeline & Modular Structure
 
 | Script | Description |
 |--------|-------------|
-| src/models/audio_RAG.py | Audio retrieval-augmented generation logic. |
-| src/models/decoder_conductor.py | Transformer arranger predicting follower loudness. |
-| src/models/decoder_instrument.py | Instrument-specific GRU + DDSP synthesizer. |
-| src/models/perform_music.py | End-to-end generation + multi-instrument synthesis. |
-| src/models/signal_processing.py | Harmonic & noise DDSP utilities. |
-| src/models/train_conductor.py | Training loop for the Transformer arranger. |
-| src/models/train_instrument.py | Training loop for instrument decoders. |
+| src/models/perform_music.py | The main entry point. Handles end-to-end generation and multi-instrument ensemble synthesis |
+| src/models/audio_RAG.py | Implements Retrieval-Augmented Generation to extend user audio using style-matched database segments |
+|--------|-------------|
+| src/models/decoder_conductor.py | The Transformer Arranger logic. Predicts the dynamic loudness curves for all follower instruments |
+| src/models/train_conductor.py | The training loop for the Transformer model to learn musical "conduction" patterns |
+|--------|-------------|
+| src/models/decoder_instrument.py | The Instrument Decoder. Combines a 3-layer GRU with DDSP synthesis heads |
+| src/models/train_instrument.py | The training environment for teaching individual instrument decoders their specific timbre |
+|--------|-------------|
+| src/models/signal_processing.py | Core DSP engine for harmonic additive synthesis and filtered noise generation |
 
 
 graph TD
