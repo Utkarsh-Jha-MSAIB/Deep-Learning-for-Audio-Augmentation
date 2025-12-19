@@ -47,18 +47,15 @@ The system integrates three key technical directions:
 
 # Project Pipeline & Modular Structure
 
-| Script | Description |
-|--------|-------------|
-| src/models/perform_music.py | The main entry point. Handles end-to-end generation and multi-instrument ensemble synthesis |
-| src/models/audio_RAG.py | Implements Retrieval-Augmented Generation to extend user audio using style-matched database segments |
-|--------|-------------|
-| src/models/decoder_conductor.py | The Transformer Arranger logic. Predicts the dynamic loudness curves for all follower instruments |
-| src/models/train_conductor.py | The training loop for the Transformer model to learn musical "conduction" patterns |
-|--------|-------------|
-| src/models/decoder_instrument.py | The Instrument Decoder. Combines a 3-layer GRU with DDSP synthesis heads |
-| src/models/train_instrument.py | The training environment for teaching individual instrument decoders their specific timbre |
-|--------|-------------|
-| src/models/signal_processing.py | Core DSP engine for harmonic additive synthesis and filtered noise generation |
+| Category | Script | Description |
+|--------|--------|-------------|
+| Inference | `src/models/perform_music.py` | Main entry point. Handles end-to-end generation and multi-instrument ensemble synthesis. |
+| Inference | `src/models/audio_RAG.py` | Implements Retrieval-Augmented Generation to extend user audio using style-matched database segments. |
+| Orchestration | `src/models/decoder_conductor.py` | Transformer arranger logic that predicts dynamic loudness curves for follower instruments. |
+| Orchestration | `src/models/train_conductor.py` | Training loop for learning musical “conduction” patterns. |
+| Synthesis | `src/models/decoder_instrument.py` | Instrument decoder combining a 3-layer GRU with DDSP synthesis heads. |
+| Synthesis | `src/models/train_instrument.py` | Training environment for learning instrument-specific timbre. |
+| DSP Core | `src/models/signal_processing.py` | Core DSP engine for harmonic additive synthesis and filtered noise generation. |
 
 
 graph TD
