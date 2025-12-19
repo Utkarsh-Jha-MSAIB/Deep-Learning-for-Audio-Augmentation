@@ -13,6 +13,13 @@ The system integrates three key technical directions:
   - DDSP modules provide realistic harmonic & noise modeling
   - Transformer Arranger predicts follower-instrument dynamics based on a leader signal
   - Ensemble arrangement (bass + drums + guitar + etc.)
+ 
+
+<p align="center">
+  <img src="https://github.com/Utkarsh-Jha-MSAIB/Deep-Learning-for-Audio-Augmentation/issues/1#issue-3746241068" width="300"/>
+</p>
+     
+
 
 - **Audio Retrieval-Augmented Generation (RAG)** (for extension, coherence, and style grounding)
   - Large feature database of audio chunks
