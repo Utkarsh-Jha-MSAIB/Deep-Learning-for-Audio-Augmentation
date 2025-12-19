@@ -14,11 +14,9 @@
 
 ## Overview
 
-This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with Neural-DSP (DDSP) decoders for high-clarity sound synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. 
+This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with **Neural-DSP (DDSP) decoders** for high-clarity sound synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. 
 
-💡 A core innovation is the integration of a Music-Specific Retrieval-Augmented Generation (RAG) mechanism. This allows the system to analyze the structure of the input audio and bridge the gap between consecutive sounds by identifying the most compatible segments from a musical database. By evaluating mathematical similarity and coherence across pitch and rhythm, the RAG logic ensures that any generated extension or accompaniment feels like a natural continuation of the original performance.
-
-<br/><br/>
+💡 A core innovation is the integration of a **Music-Specific Retrieval-Augmented Generation (RAG)** architecture. This allows the system to analyze the structure of the input audio and bridge the gap between consecutive sounds by identifying the most compatible segments from a musical database. By evaluating mathematical similarity and coherence across pitch and rhythm, the RAG logic ensures that any generated extension or accompaniment feels like a natural continuation of the original performance.
 
 The system integrates three key technical directions:
 - **Multi-Instrument Neural-DSP Pipeline** (audio-conditioned RNN + Transformer)
@@ -31,8 +29,7 @@ The system integrates three key technical directions:
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="750"/>
 </p>
-     
-
+    
 
 - **Audio Retrieval-Augmented Generation (RAG)** (for extension, coherence, and style grounding)
   - Large feature database of audio chunks
