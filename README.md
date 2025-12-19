@@ -2,11 +2,23 @@
 
 **A deep learning framework for sound-conditioned musical creativity**
 
+## 📑 Table of Contents
+
+- [Overview](#overview)
+- [Datasets](#-datasets)
+- [Project Pipeline & Modular Structure](#project-pipeline--modular-structure)
+- [Generated Song Visualization Metrics](#generated-song-visualization-metrics)
+- [RAG Audio Metrics (Top-K Retrieval Evaluation)](#rag-audio-metrics-top-k-retrieval-evaluation)
+- [Key Takeaways and Future Outlook](#-key-takeaways-and-future-outlook)
+- [Future Directions](#-future-directions)
+
 ## Overview
 
 This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with Neural-DSP (DDSP) decoders for high-clarity sound synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. 
 
 💡 A core innovation is the integration of a Music-Specific Retrieval-Augmented Generation (RAG) mechanism. This allows the system to analyze the structure of the input audio and bridge the gap between consecutive sounds by identifying the most compatible segments from a musical database. By evaluating mathematical similarity and coherence across pitch and rhythm, the RAG logic ensures that any generated extension or accompaniment feels like a natural continuation of the original performance.
+
+<br/><br/>
 
 The system integrates three key technical directions:
 - **Multi-Instrument Neural-DSP Pipeline** (audio-conditioned RNN + Transformer)
@@ -34,6 +46,7 @@ The system integrates three key technical directions:
   <img src="https://github.com/user-attachments/assets/e9cbfe7c-8dc5-4ca3-8e43-559121c288e3" width="400"/>
 </p> 
   
+<br/>
 
 📂 **Datasets**
 
@@ -48,6 +61,8 @@ The system integrates three key technical directions:
 
 4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
 
+<br/>
+
 ## Project Pipeline & Modular Structure
 
 | Category | Script | Description |
@@ -60,6 +75,7 @@ The system integrates three key technical directions:
 | Synthesis | `src/models/train_instrument.py` | Training environment for learning instrument-specific timbre |
 | DSP Core | `src/models/signal_processing.py` | Core DSP engine for harmonic additive synthesis and filtered noise generation |
 
+<br/>
 
 ## Generated Song Visualization Metrics
 
@@ -71,9 +87,13 @@ The following metrics are computed for each generated song to support qualitativ
 | **Melody (Pitch / Complexity)** | Pitch content | Fundamental frequency trajectory extracted using pYIN. Melodic complexity is measured as normalized pitch variance across voiced frames. | f0(t): fundamental frequency estimated by pYIN |
 | **Dynamics (Loudness / Energy)** | Expressive dynamics | Temporal loudness envelope computed using RMS over short time windows. Average energy reflects perceived loudness, while dynamics capture amplitude variation over time. | RMS(t) = sqrt( (1/N) * sum(y_i²) ) |
 
+<br/>
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2a9d9eaa-b1b1-4d78-8031-d66a088ce7e4" width="550"/>
 </p>
+
+<br/>
 
 ## RAG Audio Metrics (Top-K Retrieval Evaluation)
 
@@ -107,14 +127,25 @@ Each output is generated using **one retrieved database segment** selected by a 
 
 These findings indicate strong alignment between the automated RAG ranking and subjective musical continuity, while also highlighting the importance of human listening as a final filtering step in music generation workflows.
 
+<br/>
 
-### Notes
-- The raw waveform represents instantaneous amplitude rather than perceived loudness.
-- RMS envelopes are therefore used as a perceptually meaningful proxy for loudness and energy.
-- These metrics enable direct comparison between generated outputs and reference arrangements, supporting both qualitative listening analysis and objective visualization.
+## 🌟 Key Takeaways and Future Outlook
 
+This project highlights several important observations about expressive audio generation and large-scale music modeling:
 
+- **Scaling matters for audio generation.** Similar to trends observed in large language models, audio-to-audio deep learning performance improves significantly with both data scale and model capacity. Moving from symbolic KRN data to large-scale multitrack datasets such as LSX, and scaling models from approximately 1.6M to 4.7M parameters, resulted in noticeably higher audio fidelity. These results strongly suggest that continued scaling along both data and model dimensions will yield further improvements.
 
+- **Musical quality cannot be fully captured by numbers.** Quantitative metrics such as Energy, Dynamics, or composite Audio RAG scores provide useful signals, but they do not reliably correlate with perceived musical quality. In practice, human listening remained indispensable, with outputs often accepted or rejected based on auditory judgment rather than numerical thresholds. This reinforces the role of perceptual evaluation in music generation systems.
 
+- **There is no single “optimal” music output.** Unlike many optimization problems, music generation does not converge to a strict optimal solution. There is always room for perceptual refinement. This insight motivated architectural experimentation, including specialized handling of drums using loudness-only representations processed through 1D convolutions. These results suggest that different instruments may benefit from tailored modeling strategies rather than uniform architectures.
 
+<br/>
+
+### 🔮 Future Directions
+
+- **Expanded specialist-instrument modeling.** Treating each instrument as a specialist model has proven effective in capturing expressive timbre and articulation. Future work will extend this approach to a broader range of instruments, with a focus on maintaining large, balanced datasets per instrument to avoid degradation due to data scarcity.
+
+- **Multi-stage Audio RAG composition.** While the current Audio RAG system focuses on high-quality single-segment extensions, the framework naturally extends to multi-hop retrieval and stitching. By chaining multiple high-scoring segments using a bankable composite score (relevance + coherence), the system could generate longer, more structured, and musically coherent multi-instrument compositions.
+
+Overall, this work reinforces the idea that expressive music generation benefits from a combination of scale, modular design, perceptual evaluation, and retrieval-based grounding. These principles position the system as a flexible foundation for future research in structured, high-quality audio generation.
 
