@@ -16,7 +16,7 @@ The system integrates three key technical directions:
  
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="300"/>
+  <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="700"/>
 </p>
      
 
