@@ -48,7 +48,7 @@ The system integrates three key technical directions:
 
 4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
 
-# Project Pipeline & Modular Structure
+## Project Pipeline & Modular Structure
 
 | Category | Script | Description |
 |--------|--------|-------------|
@@ -60,7 +60,8 @@ The system integrates three key technical directions:
 | Synthesis | `src/models/train_instrument.py` | Training environment for learning instrument-specific timbre |
 | DSP Core | `src/models/signal_processing.py` | Core DSP engine for harmonic additive synthesis and filtered noise generation |
 
-## 🎼 Generated Song Visualization Metrics
+
+## Generated Song Visualization Metrics
 
 The following metrics are computed for each generated song to support qualitative analysis, comparative evaluation against prior arrangements, and improved interpretability while listening to the output audio. Such analysis can form as foundation for further applying transfer learning, advanced ML techniques for truly augmented audio.
 
