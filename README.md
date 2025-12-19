@@ -2,7 +2,7 @@
 
 **A deep learning framework for sound-conditioned musical creativity**
 
-## 📑 Table of Contents
+## Contents
 
 - [Overview](#overview)
 - [Datasets](#-datasets)
@@ -45,7 +45,7 @@ The system integrates three key technical directions:
   
 <br/>
 
-📂 **Datasets**
+**Datasets**
 
 1. **Essen Folksong (KRN)**: Symbolic-only dataset for early pipeline validation.
 
@@ -136,9 +136,8 @@ This project highlights several important observations about expressive audio ge
 
 - **There is no single “optimal” music output.** Unlike many optimization problems, music generation does not converge to a strict optimal solution. There is always room for perceptual refinement. This insight motivated architectural experimentation, including specialized handling of drums using loudness-only representations processed through 1D convolutions. These results suggest that different instruments may benefit from tailored modeling strategies rather than uniform architectures.
 
-<br/>
 
-### 🔮 Future Directions
+### Future Directions
 
 - **Expanded specialist-instrument modeling.** Treating each instrument as a specialist model has proven effective in capturing expressive timbre and articulation. Future work will extend this approach to a broader range of instruments, with a focus on maintaining large, balanced datasets per instrument to avoid degradation due to data scarcity.
 
