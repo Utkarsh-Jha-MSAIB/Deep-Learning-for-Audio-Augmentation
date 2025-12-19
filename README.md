@@ -28,7 +28,7 @@ The system integrates three key technical directions:
   - Entire multi-instrument pipeline can generate extended Top-K continuations
  
   <p align="center">
-  <img src="https://github.com/user-attachments/assets/e9cbfe7c-8dc5-4ca3-8e43-559121c288e3" width="500"/>
+  <img src="https://github.com/user-attachments/assets/e9cbfe7c-8dc5-4ca3-8e43-559121c288e3" width="300"/>
 </p> 
   
 
@@ -49,40 +49,12 @@ The system integrates three key technical directions:
 
 | Category | Script | Description |
 |--------|--------|-------------|
-| Inference | `src/models/perform_music.py` | Main entry point. Handles end-to-end generation and multi-instrument ensemble synthesis. |
-| Inference | `src/models/audio_RAG.py` | Implements Retrieval-Augmented Generation to extend user audio using style-matched database segments. |
-| Orchestration | `src/models/decoder_conductor.py` | Transformer arranger logic that predicts dynamic loudness curves for follower instruments. |
-| Orchestration | `src/models/train_conductor.py` | Training loop for learning musical “conduction” patterns. |
-| Synthesis | `src/models/decoder_instrument.py` | Instrument decoder combining a 3-layer GRU with DDSP synthesis heads. |
-| Synthesis | `src/models/train_instrument.py` | Training environment for learning instrument-specific timbre. |
-| DSP Core | `src/models/signal_processing.py` | Core DSP engine for harmonic additive synthesis and filtered noise generation. |
+| Inference | `src/models/perform_music.py` | Main entry point. Handles end-to-end generation and multi-instrument ensemble synthesis |
+| Inference | `src/models/audio_RAG.py` | Implements Retrieval-Augmented Generation to extend user audio using style-matched database segments |
+| Orchestration | `src/models/decoder_conductor.py` | Transformer arranger logic that predicts dynamic loudness curves for follower instruments |
+| Orchestration | `src/models/train_conductor.py` | Training loop for learning musical “conduction” patterns |
+| Synthesis | `src/models/decoder_instrument.py` | Instrument decoder combining a 3-layer GRU with DDSP synthesis heads |
+| Synthesis | `src/models/train_instrument.py` | Training environment for learning instrument-specific timbre |
+| DSP Core | `src/models/signal_processing.py` | Core DSP engine for harmonic additive synthesis and filtered noise generation |
 
 
-graph TD
-    subgraph "1. Training Phase (PyTorch Lightning)"
-        DATA[SynthDataset: Pitch, Loudness, Audio] --> DL[DataLoader]
-        DL --> STEP[Training Step]
-        STEP --> FORWARD[Model Forward Pass]
-        FORWARD --> SPEC[Mel-Spectrogram Transform]
-        SPEC --> LOSS[L1 Spectral Loss]
-        LOSS --> OPT[Adam Optimizer]
-    end
-
-    subgraph "2. Neural Synthesizer (The Brain)"
-        INPUT[Pitch Hz & Loudness] --> MLP[Input MLP & GELU]
-        MLP --> GRU[3-Layer Stacked GRU]
-        GRU --> NORM[LayerNorm]
-        NORM --> H1[Amplitude Head]
-        NORM --> H2[Harmonic Head]
-        NORM --> H3[Noise Head]
-    end
-
-    subgraph "3. DDSP Synthesis (Signal Processing)"
-        H1 & H2 & INPUT --> H_SYNTH[Harmonic Synthesis Additive]
-        H3 --> N_SYNTH[Noise Synthesis Subtractive]
-        H_SYNTH --> MIX[Summation]
-        N_SYNTH --> MIX
-    end
-
-    MIX --> |Generated Audio| SPEC
-    MIX --> |Final Output| WAV[.wav File]
