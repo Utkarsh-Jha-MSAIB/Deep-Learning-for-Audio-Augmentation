@@ -74,7 +74,39 @@ The following metrics are computed for each generated song to support qualitativ
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2a9d9eaa-b1b1-4d78-8031-d66a088ce7e4" width="550"/>
 </p>
-     
+
+## RAG Audio Metrics (Top-K Retrieval Evaluation)
+
+The table below reports the **Top-10 Audio RAG retrieval results** for two input songs:
+
+Each output is generated using **one retrieved database segment** selected by a composite score that balances *style relevance* and *temporal coherence*.
+
+### Evaluation Criteria
+- **Rank**: Ordering of candidates sorted by composite score (best first)
+- **IDX**: Start index of the selected database audio chunk
+- **Composite Score**: Weighted combination of relevance (style similarity) and coherence (smooth pitch and loudness transition)
+
+### Top-10 Retrieval Results
+
+| Rank | Input Song 1: DB Chunk IDX | Input Song 1: Composite Score | Input Song 2: DB Chunk IDX | Input Song 2: Composite Score |
+|------|------------------------|---------------------------|---------------------|------------------------|
+| 1 | **38773** | **1.3866** | 32772 | 1.3419 |
+| 2 | 38772 | 1.3856 | 31330 | 1.3358 |
+| 3 | 35602 | 1.3854 | 60316 | 1.3308 |
+| 4 | 35601 | 1.3832 | 32531 | 1.3013 |
+| 5 | 50781 | 1.3814 | 48190 | 1.2995 |
+| 6 | 58783 | 1.3811 | 6401 | 1.2967 |
+| 7 | 43069 | 1.3799 | 60221 | 1.2943 |
+| 8 | 20349 | 1.3776 | 23115 | 1.2941 |
+| 9 | 32140 | 1.3773 | **41021** | **1.2842** |
+| 10 | 20713 | 1.3768 | 21927 | 1.2781 |
+
+**Perceptual Evaluation (Human Listening):**
+- For *Input Song 1*, Rank-1 was consistently rated as the best perceptual continuation.
+- For *Input Song 2*, Rank-9 was preferred despite a lower composite score.
+
+These findings indicate strong alignment between the automated RAG ranking and subjective musical continuity, while also highlighting the importance of human listening as a final filtering step in music generation workflows.
+
 
 ### Notes
 - The raw waveform represents instantaneous amplitude rather than perceived loudness.
