@@ -33,17 +33,10 @@ The system integrates three key technical directions:
 
 4. **URMP**: Classical multi-instrument stems; used for acoustic timbre modeling.
 
-# Pipeline
+# Pipeline: a modular coding structure, with following desccription of main scripts in the process
 
 | Script | Description |
 |--------|-------------|
-| src/data/converters.py | KRN → MIDI conversion and symbolic normalization. |
-| src/data/download_slakh.py | Download BabySlakh dataset. |
-| src/data/download_urmp.py | Download URMP dataset. |
-| src/data/extraction.py | Extract f0, loudness, and frame-level features. |
-| src/data/loader.py | Dataset loading utilities. |
-| src/data/preprocess.py | Windowing, normalization, feature preparation. |
-| src/data/process_band.py | Multi-instrument alignment (LSX stems). |
 | src/models/audio_RAG.py | Audio retrieval-augmented generation logic. |
 | src/models/decoder_conductor.py | Transformer arranger predicting follower loudness. |
 | src/models/decoder_instrument.py | Instrument-specific GRU + DDSP synthesizer. |
@@ -51,5 +44,33 @@ The system integrates three key technical directions:
 | src/models/signal_processing.py | Harmonic & noise DDSP utilities. |
 | src/models/train_conductor.py | Training loop for the Transformer arranger. |
 | src/models/train_instrument.py | Training loop for instrument decoders. |
-| src/visualization/song_in_detail.py | Mel plots, loudness curves, waveform diagnostics. |
 
+
+graph TD
+    subgraph "1. Training Phase (PyTorch Lightning)"
+        DATA[SynthDataset: Pitch, Loudness, Audio] --> DL[DataLoader]
+        DL --> STEP[Training Step]
+        STEP --> FORWARD[Model Forward Pass]
+        FORWARD --> SPEC[Mel-Spectrogram Transform]
+        SPEC --> LOSS[L1 Spectral Loss]
+        LOSS --> OPT[Adam Optimizer]
+    end
+
+    subgraph "2. Neural Synthesizer (The Brain)"
+        INPUT[Pitch Hz & Loudness] --> MLP[Input MLP & GELU]
+        MLP --> GRU[3-Layer Stacked GRU]
+        GRU --> NORM[LayerNorm]
+        NORM --> H1[Amplitude Head]
+        NORM --> H2[Harmonic Head]
+        NORM --> H3[Noise Head]
+    end
+
+    subgraph "3. DDSP Synthesis (Signal Processing)"
+        H1 & H2 & INPUT --> H_SYNTH[Harmonic Synthesis Additive]
+        H3 --> N_SYNTH[Noise Synthesis Subtractive]
+        H_SYNTH --> MIX[Summation]
+        N_SYNTH --> MIX
+    end
+
+    MIX --> |Generated Audio| SPEC
+    MIX --> |Final Output| WAV[.wav File]
