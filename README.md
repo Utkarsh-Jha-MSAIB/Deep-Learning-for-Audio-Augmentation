@@ -4,8 +4,7 @@
 
 ## Overview
 
-This project explores deep learning approaches for expressive audio augmentation, shifting from pure text-to-music generation toward sound-conditioned creative transformation.
-Instead of generating music from text alone, the system listens to audio, extracts expressive characteristics, and produces musically coherent variations grounded in real sonic input.
+This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with Neural-DSP (DDSP) decoders for high-fidelity synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. The integration of a Music-Specific RAG mechanism allows the system to ground its structural decisions in a library of precomputed musical features, ensuring harmonic coherence and rhythmic realism.
 
 The system integrates three key technical directions:
 - **Multi-Instrument Neural-DSP Pipeline** (audio-conditioned RNN + Transformer)
