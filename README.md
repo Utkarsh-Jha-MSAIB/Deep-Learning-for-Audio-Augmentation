@@ -62,13 +62,13 @@ The system integrates three key technical directions:
 
 ## 🎼 Generated Song Visualization Metrics
 
-The following metrics are computed for each generated song to support qualitative analysis, comparative evaluation against prior arrangements, and improved interpretability while listening to the output audio.
+The following metrics are computed for each generated song to support qualitative analysis, comparative evaluation against prior arrangements, and improved interpretability while listening to the output audio. Such analysis can form as foundation for further applying transfer learning, advanced ML techniques for truly augmented audio.
 
 | Metric | Musical Aspect | Description | Formula / Definition |
 |------|---------------|-------------|----------------------|
-| **Waveform (Texture)** | Timbral structure | Time-domain visualization of the raw audio signal, illustrating transient density, amplitude variation, and overall waveform texture. Useful for identifying articulation patterns and temporal density. | \( y(t) \): audio signal amplitude at time \( t \) |
-| **Melody (Pitch / Complexity)** | Pitch content | Fundamental frequency trajectory extracted using pYIN. Melodic complexity is estimated as normalized pitch variance across voiced frames, capturing pitch movement and stability. | \( f_0(t) = \arg\max \) fundamental frequency estimated by pYIN |
-| **Dynamics (Loudness / Energy)** | Expressive dynamics | Temporal loudness envelope derived from the RMS of the waveform over short windows. Average energy reflects perceived loudness, while dynamic range captures expressive variation over time. | \( \text{RMS}(t) = \sqrt{\frac{1}{N}\sum_{i=1}^{N} y_i^2} \) |
+| **Waveform (Texture)** | Timbral structure | Time-domain visualization of the raw audio signal, illustrating transient density, amplitude variation, and overall waveform texture. Useful for identifying articulation patterns and temporal density. | y(t): audio signal amplitude at time t |
+| **Melody (Pitch / Complexity)** | Pitch content | Fundamental frequency trajectory extracted using pYIN. Melodic complexity is measured as normalized pitch variance across voiced frames. | f0(t): fundamental frequency estimated by pYIN |
+| **Dynamics (Loudness / Energy)** | Expressive dynamics | Temporal loudness envelope computed using RMS over short time windows. Average energy reflects perceived loudness, while dynamics capture amplitude variation over time. | RMS(t) = sqrt( (1/N) * sum(y_i²) ) |
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2a9d9eaa-b1b1-4d78-8031-d66a088ce7e4" width="550"/>
