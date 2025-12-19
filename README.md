@@ -4,7 +4,9 @@
 
 ## Overview
 
-This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with Neural-DSP (DDSP) decoders for high-fidelity synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. The integration of a Music-Specific RAG mechanism allows the system to ground its structural decisions in a library of precomputed musical features, ensuring harmonic coherence and rhythmic realism.
+This project implements a multi-instrument audio-conditioned framework for expressive music augmentation. The system utilizes a specialist-model strategy to transform raw audio seeds into structured ensemble performances. By pairing a Transformer-based arrangement module for global structural planning with Neural-DSP (DDSP) decoders for high-clarity sound synthesis, the pipeline captures instrument-specific nuances and hierarchical musical patterns. 
+
+💡 A core innovation is the integration of a Music-Specific Retrieval-Augmented Generation (RAG) mechanism. This allows the system to analyze the structure of the input audio and bridge the gap between consecutive sounds by identifying the most compatible segments from a musical database. By evaluating mathematical similarity and coherence across pitch and rhythm, the RAG logic ensures that any generated extension or accompaniment feels like a natural continuation of the original performance.
 
 The system integrates three key technical directions:
 - **Multi-Instrument Neural-DSP Pipeline** (audio-conditioned RNN + Transformer)
