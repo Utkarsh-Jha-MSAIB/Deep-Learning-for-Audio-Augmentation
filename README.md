@@ -27,6 +27,7 @@ The system integrates three key technical directions:
   - Retrieval based on similarity (chroma, energy, coherence)
   - Weighted scoring: relevance + seam smoothness
   - Entire multi-instrument pipeline can generate extended Top-K continuations
+  - Adaptive Multi-Scale Lookback: Matches style by analyzing GRU embeddings across $7.0\text{s}$ to $8.5\text{s}$ windows.
  
   <p align="center">
   <img src="https://github.com/user-attachments/assets/e9cbfe7c-8dc5-4ca3-8e43-559121c288e3" width="300"/>
