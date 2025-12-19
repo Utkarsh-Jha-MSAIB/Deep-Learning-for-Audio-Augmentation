@@ -5,12 +5,11 @@
 ## Contents
 
 - [Overview](#overview)
-- [Datasets](#-datasets)
+- [Datasets](#datasets)
 - [Project Pipeline & Modular Structure](#project-pipeline--modular-structure)
 - [Generated Song Visualization Metrics](#generated-song-visualization-metrics)
 - [RAG Audio Metrics (Top-K Retrieval Evaluation)](#rag-audio-metrics-top-k-retrieval-evaluation)
 - [Key Takeaways and Future Outlook](#-key-takeaways-and-future-outlook)
-- [Future Directions](#-future-directions)
 
 ## Overview
 
