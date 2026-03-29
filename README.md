@@ -115,6 +115,5 @@ Neural synthesis
 - **Ability to Utilize Diverse Patterns** While skyline structures provide a strong starting point for melodic instruments such as guitar and piano, other patterns can unlock new possibilities. For example, spherical or cyclic patterns could be mapped to rhythmic structures like drums. This opens up exciting Edge AI use cases where composers and users can discover new tunes simply by interpreting patterns they observe in the world around them.
 
 - **Multi-Instrumentation Pipeline** By isolating and visualizing key components such as pitch, loudness, and timbre, the framework can be extended to support multiple instruments simultaneously. This enables the generation of richer, multi-instrument compositions, significantly expanding the scope for innovation and creation of fresh, original music.
-- 
-Overall, this work reinforces the idea that expressive music generation benefits from a combination of scale, modular design, perceptual evaluation, and retrieval-based grounding. These principles position the system as a flexible foundation for future research in structured, high-quality audio generation.
 
+Overall, this work reinforces the idea that expressive music generation benefits from a combination of structured data science principles, modular design, and perceptual evaluation. These foundations position the system as a flexible and scalable framework for future research in novel, high-quality audio generation.
