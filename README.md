@@ -1,7 +1,13 @@
 # Data Science for Audio Augmentation
 
 **Ever wondered how the New York skyline could sound? 🏙️**
+
 What if patterns we see around us could be transformed into music?
+
+<p align="center">
+  <img src="[https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed](https://github.com/Utkarsh-Jha-MSAIB/data-science-for-audio-augmentation/blob/main/input_sample/img1.png)" width="750"/>
+</p> 
+
 
 ## Contents
 
@@ -32,10 +38,6 @@ we reverse-engineer patterns from the world around us:
 - Abstract visual patterns
 
 …and convert them into musical structures.
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/e91e9aa9-8a7d-4168-b35e-d09d205021ed" width="750"/>
-</p> 
   
 <br/>
 
