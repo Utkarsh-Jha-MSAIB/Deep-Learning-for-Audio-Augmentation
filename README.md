@@ -44,7 +44,7 @@ The system integrates three key technical directions:
 
 ---
 
-#### 🔁 Audio Retrieval-Augmented Generation (RAG)
+#### Audio Retrieval-Augmented Generation (RAG)
 
 - Large feature database of audio chunks
 - Retrieval based on similarity (chroma, energy, coherence)
@@ -145,7 +145,7 @@ These metrics support interpretability, qualitative analysis, and comparison of 
 
 ---
 
-## 🌟 Key Takeaways and Future Outlook
+## Key Takeaways and Future Outlook
 
 ### Key Takeaways
 
@@ -175,7 +175,7 @@ These metrics support interpretability, qualitative analysis, and comparison of 
 
 ---
 
-## 🎯 Final Insight
+## Final Insight
 
 This work reinforces that expressive music generation benefits from:
 
